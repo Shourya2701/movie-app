@@ -1,0 +1,20 @@
+import React from "react";
+import { useGlobalContext } from "./context";
+
+const Search = () => {
+  const { isError, query, setQuery } = useGlobalContext();
+
+  return (
+    <>
+      <section className="search-section">
+        <h2>Search Your favourite Movie</h2>
+        <input value={query} onChange={(e) => setQuery(e.target.value)} />
+        <div className="card-error">
+          <p>{isError.show && isError.msg}</p>
+        </div>
+      </section>
+    </>
+  );
+};
+
+export default Search;
